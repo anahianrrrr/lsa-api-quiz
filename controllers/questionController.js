@@ -10,7 +10,7 @@ exports.getAllQuestions = async (req, res) => {
     }
 };
 
-// CREAR una pregunta (Esto es lo que te faltaba para el POST)
+// Crea una pregunta siosi
 exports.createQuestion = async (req, res) => {
     try {
         const newQuestion = new Question(req.body);
@@ -20,7 +20,7 @@ exports.createQuestion = async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 };
-// ELIMINAR pregunta
+// elimina ka pregunta
 exports.deleteQuestion = async (req, res) => {
     try {
         const { id } = req.params;

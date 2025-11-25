@@ -1,18 +1,19 @@
 const Quiz = require('../models/Quiz');
 
-// 1. GET: Ver todos con FILTROS y BÚSQUEDA [cite: 39, 43, 44]
+// el get
 exports.getAllQuizzes = async (req, res) => {
     try {
+        //busca x nombre nivel de dificultd y categoria
         const { difficulty, category, search } = req.query;
         let query = {};
 
-        // Filtro 1: Dificultad
+        
         if (difficulty) query.difficulty = difficulty;
         
-        // Filtro 2: Categoría
+        
         if (category) query.category = category;
 
-        // Búsqueda por nombre (Search) usando Regex (búsqueda flexible)
+        
         if (search) {
             query.title = { $regex: search, $options: 'i' };
         }
@@ -24,7 +25,7 @@ exports.getAllQuizzes = async (req, res) => {
     }
 };
 
-// 2. GET: Obtener uno por ID [cite: 40]
+
 exports.getQuizById = async (req, res) => {
     try {
         const quiz = await Quiz.findById(req.params.id);
@@ -35,7 +36,7 @@ exports.getQuizById = async (req, res) => {
     }
 };
 
-// 3. POST: Crear un nuevo Quiz
+//crear un nuevo quiz
 exports.createQuiz = async (req, res) => {
     try {
         const newQuiz = new Quiz(req.body);
@@ -46,7 +47,7 @@ exports.createQuiz = async (req, res) => {
     }
 };
 
-// 4. PUT: Actualizar un Quiz [cite: 41]
+// actualiza
 exports.updateQuiz = async (req, res) => {
     try {
         const updatedQuiz = await Quiz.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -56,7 +57,7 @@ exports.updateQuiz = async (req, res) => {
     }
 };
 
-// 5. DELETE: Eliminar un Quiz [cite: 42]
+//elimina
 exports.deleteQuiz = async (req, res) => {
     try {
         await Quiz.findByIdAndDelete(req.params.id);

@@ -13,3 +13,5 @@ API RESTful para gestión de Quizzes.
 * POST /api/quizzes
 * PUT /api/quizzes/:id
 * DELETE /api/quizzes/:id
+
+* installar dependencias 

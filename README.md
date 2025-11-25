@@ -9,7 +9,7 @@ API RESTful para gestión de Quizzes.
 * **Comisión:** [Tu Comisión]
 
 ## Endpoints
-* GET /api/quizzes (Soporta filtros ?difficulty=facil y búsqueda ?search=titulo)
+* GET /api/quizzes 
 * POST /api/quizzes
 * PUT /api/quizzes/:id
 * DELETE /api/quizzes/:id
